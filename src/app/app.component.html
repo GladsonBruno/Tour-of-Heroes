@@ -1,10 +1,21 @@
 <h1>{{titulo}}</h1>
-<h2>{{heroi.Nome}} Detalhes</h2>
-<div>
-  <label>Id: </label>
-  {{heroi.Id}}
-</div>
-<div>
-  <label>Nome: </label>
-  <input [(ngModel)] = "heroi.Nome" placeholder="Nome">
-</div>
+<h2>Meus Campeões</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Titulo</th>
+      <th>Tipo</th>
+      <th>Regiao</th>
+    </tr>
+  </thead>
+    <tr *ngFor="let campeao of campeoes">
+      <td>{{campeao.Id}}</td>
+      <td>{{campeao.Nome}}</td>
+      <td>{{campeao.Titulo}}</td>
+      <td>{{campeao.Tipo}}</td>
+      <td>{{campeao.Regiao}}</td>
+    </tr>
+
+</table>
