@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 export class Campeao {
   Id: number;
@@ -29,5 +30,15 @@ const CAMPEOES: Campeao [] = [
 export class AppComponent {
   titulo: 'Tour of Heroes - League of Legends';
   campeoes = CAMPEOES;
+  campeaoSelecionado: Campeao;
+
+
+  public modalRef: BsModalRef;
+  constructor(private modalService: BsModalService){}
+
+  public openModal(template: TemplateRef<any>, campeao:Campeao){
+    this.campeaoSelecionado = campeao;
+    this.modalRef = this.modalService.show(template);
+  }
 
 }
